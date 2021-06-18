@@ -39,6 +39,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    // Registering service worker for offline functionality such as push notification
     new WorkboxPlugin.GenerateSW(),
   ],
 };
