@@ -1,21 +1,11 @@
 const { handleSubmit } = require('../src/client/js/formHandler');
+const { UIDataUpdate } = require('../src/client/js/UI');
 
-describe('Function should be defined', () => {
-  test('Run function', () => {
-    expect(handleSubmit).toBeDefined();
-  });
+test('Testing if function is truthy', () => {
+  expect(handleSubmit).toBeTruthy();
 });
+const arguement = 'data';
 
-test('The function returns an object', () => {
-  const formData = document.getElementById('name').value;
-  const dataObject = { formData };
-  fetch('http://localhost:3000/apidata', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(dataObject),
-  }).then((data) => {
-    expect(data.tobe({}));
-  });
+test('UIDataUpdate function is defined', () => {
+  expect(UIDataUpdate).toBeDefined();
 });

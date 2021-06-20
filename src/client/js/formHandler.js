@@ -1,3 +1,4 @@
+const { UIDataUpdate } = require('./UI');
 export const handleSubmit = (event) => {
   event.preventDefault();
   // check what text was put into the form field
@@ -15,14 +16,18 @@ export const handleSubmit = (event) => {
     })
       .then((data) => data.json())
       .then((data) => {
-        document.getElementById('subjectivity').innerHTML =
-          'Subjectivity: ' + data.subjectivity;
-        document.getElementById('confidence').innerHTML =
-          'Confidence: ' + data.confidence;
-        document.getElementById('agreement').innerHTML =
-          'Agreement: ' + data.agreement;
-        document.getElementById('score').innerHTML = 'Score:' + data.score_tag;
+        UIDataUpdate(data);
       });
+
+    // .then((data) => {
+    //   document.getElementById('subjectivity').innerHTML =
+    //     'Subjectivity: ' + data.subjectivity;
+    //   document.getElementById('confidence').innerHTML =
+    //     'Confidence: ' + data.confidence;
+    //   document.getElementById('agreement').innerHTML =
+    //     'Agreement: ' + data.agreement;
+    //   document.getElementById('score').innerHTML = 'Score:' + data.score_tag;
+    // });
   } else {
     alert('URL must be valid');
   }
